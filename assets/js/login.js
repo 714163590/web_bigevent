@@ -38,7 +38,7 @@ $(function(){
         //或者利用return false也能阻止默认行为,没有兼容问题(只限传统注册方式)
         preventDefault()
         var data={username:$('#form_reg [name=username]').val(),password:$('#form_reg [name=password]').val()};
-        $.post('http://ajax.frontend.itheima.net/api/reguser',data,function(res){
+        $.post('/api/reguser',data,function(res){
             if(res.status!==0){
                 return layer.msg(res.message)
             }
@@ -51,7 +51,7 @@ $(function(){
     $('#form_login').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url:'http://ajax.frontend.itheima.net/api/login',
+            url:'/api/login',
             method:'POST',
             //快速获取表单中的数据
             data:$(this).serialize(),
